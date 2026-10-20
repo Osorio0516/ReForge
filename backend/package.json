@@ -1,0 +1,27 @@
+{
+  "name": "pc-builder-backend",
+  "version": "1.1.0",
+  "private": true,
+  "description": "PC Builder backend using the lecture CommonJS and Router structure",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "setup": "node src/setup.js",
+    "seed": "node src/seed.js",
+    "test": "node --test test/*.test.js",
+    "test:api": "node test/api-smoke.js",
+    "format": "prettier --write src test setup-db.cjs"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^5.1.0",
+    "mongoose": "^8.19.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.9.9"
+  }
+}

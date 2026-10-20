@@ -1,0 +1,499 @@
+{
+  "info": {
+    "name": "PC Builder Backend",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://127.0.0.1:5000/api"
+    },
+    {
+      "key": "id",
+      "value": ""
+    },
+    {
+      "key": "buildId",
+      "value": ""
+    },
+    {
+      "key": "componentId",
+      "value": ""
+    },
+    {
+      "key": "categoryId",
+      "value": ""
+    },
+    {
+      "key": "itemId",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "List category records",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/categories",
+        "description": "List category records"
+      }
+    },
+    {
+      "name": "Get one category",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/categories/{{id}}",
+        "description": "Get one category"
+      }
+    },
+    {
+      "name": "Create category",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/categories",
+        "description": "Create category",
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\":\"CPU\",\"slug\":\"cpu\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Edit category",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/categories/{{id}}",
+        "description": "Edit category",
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\":\"Processors\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Delete unused category",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": "{{baseUrl}}/categories/{{id}}",
+        "description": "Delete unused category"
+      }
+    },
+    {
+      "name": "List component records",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/components",
+        "description": "List component records"
+      }
+    },
+    {
+      "name": "Get one component",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/components/{{id}}",
+        "description": "Get one component"
+      }
+    },
+    {
+      "name": "Create component",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/components",
+        "description": "Create component",
+        "body": {
+          "mode": "raw",
+          "raw": "{\"sku\":\"CUSTOM-CPU-1\",\"name\":\"My CPU\",\"brand\":\"Example\",\"categoryId\":\"{{categoryId}}\",\"price\":9000,\"specs\":{\"socket\":\"AM5\",\"powerWatts\":90}}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Edit component",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/components/{{id}}",
+        "description": "Edit component",
+        "body": {
+          "mode": "raw",
+          "raw": "{\"price\":8500}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Delete unused component",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": "{{baseUrl}}/components/{{id}}",
+        "description": "Delete unused component"
+      }
+    },
+    {
+      "name": "List rule records",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/compatibility-rules",
+        "description": "List rule records"
+      }
+    },
+    {
+      "name": "Get one rule",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/compatibility-rules/{{id}}",
+        "description": "Get one rule"
+      }
+    },
+    {
+      "name": "Create rule",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/compatibility-rules",
+        "description": "Create rule",
+        "body": {
+          "mode": "raw",
+          "raw": "{\"code\":\"cpu-socket\",\"name\":\"CPU socket\",\"enabled\":true}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Edit rule",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/compatibility-rules/{{id}}",
+        "description": "Edit rule",
+        "body": {
+          "mode": "raw",
+          "raw": "{\"enabled\":false}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Delete unused rule",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": "{{baseUrl}}/compatibility-rules/{{id}}",
+        "description": "Delete unused rule"
+      }
+    },
+    {
+      "name": "Database health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/health",
+        "description": "Database health"
+      }
+    },
+    {
+      "name": "List/search builds",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/builds",
+        "description": "List/search builds"
+      }
+    },
+    {
+      "name": "Create draft",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/builds",
+        "description": "Create draft",
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\":\"Gaming PC\",\"budget\":50000}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Get populated build",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/builds/{{id}}",
+        "description": "Get populated build"
+      }
+    },
+    {
+      "name": "Edit and reset to draft",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/builds/{{id}}",
+        "description": "Edit and reset to draft",
+        "body": {
+          "mode": "raw",
+          "raw": "{\"budget\":55000}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Delete build and all its items",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": "{{baseUrl}}/builds/{{id}}",
+        "description": "Delete build and all its items"
+      }
+    },
+    {
+      "name": "List selected parts",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/builds/{{id}}/items",
+        "description": "List selected parts"
+      }
+    },
+    {
+      "name": "Select component",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/builds/{{id}}/items",
+        "description": "Select component",
+        "body": {
+          "mode": "raw",
+          "raw": "{\"componentId\":\"{{componentId}}\",\"quantity\":1}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Change selected quantity",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/build-items/{{id}}",
+        "description": "Change selected quantity",
+        "body": {
+          "mode": "raw",
+          "raw": "{\"quantity\":2}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Remove selected part",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": "{{baseUrl}}/build-items/{{id}}",
+        "description": "Remove selected part"
+      }
+    },
+    {
+      "name": "Copy build and selections",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/builds/{{id}}/copies",
+        "description": "Copy build and selections",
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\":\"Second build\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Rule-based completion",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/builds/{{id}}/status",
+        "description": "Rule-based completion",
+        "body": {
+          "mode": "raw",
+          "raw": "{\"status\":\"completed\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Compute itemized current total",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/builds/{{id}}/pricing",
+        "description": "Compute itemized current total"
+      }
+    },
+    {
+      "name": "Compute budget difference",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/builds/{{id}}/budget",
+        "description": "Compute budget difference"
+      }
+    },
+    {
+      "name": "Evaluate specifications",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/builds/{{id}}/compatibility",
+        "description": "Evaluate specifications"
+      }
+    },
+    {
+      "name": "Estimate PSU requirement",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/builds/{{id}}/power",
+        "description": "Estimate PSU requirement"
+      }
+    },
+    {
+      "name": "Compare two builds",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/builds/comparison?left={{id}}&right={{id}}",
+        "description": "Compare two builds"
+      }
+    },
+    {
+      "name": "Aggregate saved build statistics",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/builds/statistics",
+        "description": "Aggregate saved build statistics"
+      }
+    }
+  ]
+}
