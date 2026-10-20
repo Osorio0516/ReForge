@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "workspaces": ["backend"],
   "scripts": {
     "dev": "node scripts/dev.mjs",
     "build": "tsc -b && vite build",
@@ -10,7 +11,7 @@
     "preview": "vite preview",
     "dev:frontend": "vite",
     "dev:backend": "npm --prefix backend run dev",
-    "setup": "npm ci && npm --prefix backend ci",
+    "setup": "npm ci",
     "db:setup": "npm --prefix backend run setup",
     "db:seed": "npm --prefix backend run seed",
     "start": "npm --prefix backend start"

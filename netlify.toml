@@ -1,3 +1,8 @@
+[build]
+  base = "."
+  command = "npm run build"
+  publish = "dist"
+
 [build.environment]
   # These non-credential settings also appear in source, examples, and docs.
   # Keep all other environment values (especially MONGO_URI) scanned.

@@ -41,7 +41,7 @@ If scanning still fails, review the detection lines immediately before the error
 
 ## Commands
 
-- `npm run setup`: install both projects from their lockfiles.
+- `npm install` (or `npm run setup` for a clean install): install frontend and backend dependencies together using the root workspace lockfile.
 - `npm run dev`: start both development servers; Ctrl+C stops both.
 - `npm run dev:frontend` / `npm run dev:backend`: start either separately.
 - `npm run db:setup`: initialize categories, rules, and indexes while preserving existing records.
