@@ -33,6 +33,12 @@ npm start
 
 Open http://127.0.0.1:5000. Express serves the compiled frontend and API from one port. Restart the server after building. `npm run preview` previews static files only; use `npm start` for the full application.
 
+## Netlify secrets scanning
+
+Netlify continues to scan repository files and build output for credentials. `netlify.toml` excludes only the non-credential settings `DB_NAME`, `HOST`, `PORT`, and `NODE_ENV`, whose ordinary values also occur in source and documentation. `MONGO_URI` and other environment values remain scanned. Keep connection strings in Netlify environment variables or an ignored local `.env` file; never put credentials in `VITE_` variables, which are included in the browser bundle.
+
+If scanning still fails, review the detection lines immediately before the error summary to identify the variable names and file paths. Remove any real credentials and rotate them with their provider rather than disabling scanning or excluding credential variables.
+
 ## Commands
 
 - `npm run setup`: install both projects from their lockfiles.

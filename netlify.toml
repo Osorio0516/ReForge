@@ -1,0 +1,4 @@
+[build.environment]
+  # These non-credential settings also appear in source, examples, and docs.
+  # Keep all other environment values (especially MONGO_URI) scanned.
+  SECRETS_SCAN_OMIT_KEYS = "DB_NAME,HOST,PORT,NODE_ENV"
