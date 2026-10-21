@@ -8,6 +8,7 @@ export type Items = Partial<Record<Cat, string>>
 export interface Build { id: string; name: string; items: Items }
 export interface Check { label: string; detail: string }
 
+
 export const PARTS: Part[] = [
   { id: 'cpu1', cat: 'CPU', brand: 'AMD', name: 'Ryzen 5 7600', price: 229, spec: '6 cores / 12 threads · 65 W', socket: 'AM5', watts: 65 },
   { id: 'cpu2', cat: 'CPU', brand: 'Intel', name: 'Core i5-13600K', price: 299, spec: '14 cores / 20 threads · 125 W', socket: 'LGA1700', watts: 125 },
